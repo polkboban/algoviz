@@ -1,5 +1,60 @@
-# Vue 3 + TypeScript + Vite
+# AlgoVizer
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+An interactive **Algorithm Visualizer** built with **Vue.js** to help users understand various algorithms through step-by-step execution and animations.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+##  Features
+
+✅ **Algorithm Selection** – Choose different algorithms from a dropdown menu.  
+✅ **Step-by-Step Execution** – Play, pause, and step forward/backward.  
+✅ **Dynamic Input** – Enter custom data for sorting, page replacement, etc.  
+✅ **Visual Animations** – Highlight affected elements dynamically.  
+✅ **Performance Metrics** – Display time complexity and comparisons.  
+
+##  Tech Stack
+
+- **Vue 3 (Composition API)** – Core framework  
+- **Pinia** – State management for algorithm steps  
+- **Tailwind CSS** – UI styling  
+- **Canvas or SVG** – Graph-based algorithms visualization  
+
+##  Algorithms Implemented
+
+### Sorting Algorithms
+- ✅ Bubble Sort  
+- ✅ QuickSort  
+- ✅ MergeSort  
+- ✅ Heap Sort  
+
+### Page Replacement Algorithms
+- ✅ FIFO (First-In-First-Out)  
+- ✅ LRU (Least Recently Used)  
+- ✅ Optimal Page Replacement  
+
+### Graph Algorithms
+- ✅ BFS (Breadth-First Search)  
+- ✅ DFS (Depth-First Search)  
+
+## 📦 Installation & Setup
+
+```sh
+# Clone the repository
+git clone https://github.com/your-username/algorithm-visualizer.git
+
+# Navigate to the project directory
+cd algorithm-visualizer
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+
+##  Future Improvements
+- [ ] Dark Mode 🌙  
+- [ ] User Configurations in Local Storage  
+- [ ] More Algorithm Support (e.g., A* Search, Prim’s Algorithm)  
+ 
+
+
