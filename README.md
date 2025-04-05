@@ -21,14 +21,13 @@ An interactive **Algorithm Visualizer** built with **Vue.js** to help users unde
 
 ### Sorting Algorithms
 - ✅ Bubble Sort  
-- ✅ QuickSort  
-- ✅ MergeSort  
+- ✅ Insertion Sort  
+- ✅ Merge Sort  
 - ✅ Heap Sort  
 
 ### Page Replacement Algorithms
 - ✅ FIFO (First-In-First-Out)  
 - ✅ LRU (Least Recently Used)  
-- ✅ Optimal Page Replacement  
 
 ### Graph Algorithms
 - ✅ BFS (Breadth-First Search)  
