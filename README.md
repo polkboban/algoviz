@@ -38,10 +38,10 @@ An interactive **Algorithm Visualizer** built with **Vue.js** to help users unde
 
 ```sh
 # Clone the repository
-git clone https://github.com/your-username/algorithm-visualizer.git
+git clone https://github.com/your-username/algoviz.git
 
 # Navigate to the project directory
-cd algorithm-visualizer
+cd algoviz
 
 # Install dependencies
 npm install
