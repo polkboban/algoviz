@@ -30,11 +30,14 @@ const navigateToAlgorithm = (id: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-slate-900 dark:to-indigo-950 py-12 px-4">
+  <div class="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 dark:from-slate-900 dark:to-indigo-950 py-12 px-4">
     <div class="container mx-auto max-w-5xl">
-      <h1 class="text-5xl font-bold text-center mb-9 text-slate-800 dark:text-white">
-        Explore and understand complex algorithms through interactive visualizations
+      <h1 class="text-5xl font-bold text-center mb-2 text-slate-800 dark:text-white">
+        Algorithm Visualizer
       </h1>
+      <h2 class="text-3xl text-center mb-9 text-slate-800 dark:text-white">
+        Explore and understand complex algorithms through interactive visualizations
+      </h2>
       
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">

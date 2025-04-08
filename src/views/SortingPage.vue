@@ -13,7 +13,7 @@ const selectedAlgorithm = ref(algorithms[0].id)
 </script>
 
 <template>
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 py-7">
     <h1 class="page-title">Sorting Algorithms</h1>
     <div class="algorithm-selector">
       <button
