@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import SortingVisualizer from './visualizers/SortingVisualizer.vue'
 import PageReplacementVisualizer from './visualizers/PageReplacementVisualizer.vue'
 import GraphVisualizer from './visualizers/GraphVisualizer.vue'
 
-const props = defineProps<{
+defineProps<{
   algorithm: string
 }>()
 
