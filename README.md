@@ -1,4 +1,4 @@
-# AlgoVizer
+# ALGOVIZ
 
 An interactive **Algorithm Visualizer** built with **Vue.js** to help users understand various algorithms through step-by-step execution and animations.
 
@@ -33,7 +33,7 @@ An interactive **Algorithm Visualizer** built with **Vue.js** to help users unde
 - ✅ BFS (Breadth-First Search)  
 - ✅ DFS (Depth-First Search)  
 
-## 📦 Installation & Setup
+##  Installation & Setup
 
 ```sh
 # Clone the repository
@@ -51,7 +51,7 @@ npm run dev
 
 
 ##  Future Improvements
-- [ ] Dark Mode 🌙  
+- [ ] Dark Mode ✅
 - [ ] User Configurations in Local Storage  
 - [ ] More Algorithm Support (e.g., A* Search, Prim’s Algorithm)  
  
