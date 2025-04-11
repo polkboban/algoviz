@@ -12,7 +12,7 @@ const toggleDark = useToggle(isDark)
       <div class="flex items-center justify-between">
         <router-link to="/" class="flex items-center gap-2">
           
-          <h1 class="text-xl font-bold text-slate-800 dark:text-white">ALGOVIZER</h1>
+          <h1 class="text-xl font-bold text-slate-800 dark:text-white">ALGOVIZ</h1>
         </router-link>
         <div class="flex items-center gap-4">
           <button
