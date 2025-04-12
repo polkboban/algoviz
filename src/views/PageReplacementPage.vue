@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import PageReplacementVisualizer from '../components/visualizers/PageReplacementVisualizer.vue'
+import PageReplacementVisualizer from '../components/visualizers/PRVisualizer.vue'
 
 const algorithms = [
   { id: 'lru', name: 'LRU' },

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import SortingVisualizer from './visualizers/SortingVisualizer.vue'
-import PageReplacementVisualizer from './visualizers/PageReplacementVisualizer.vue'
+import PageReplacementVisualizer from './visualizers/PRVisualizer.vue'
 import GraphVisualizer from './visualizers/GraphVisualizer.vue'
 
 defineProps<{
