@@ -80,7 +80,7 @@ body {
 }
 
 .algorithm-button.active {
-  @apply bg-indigo-600 text-white;
+  @apply bg-blue-500 text-white hover:bg-blue-600;
 }
 
 .algorithm-button.inactive {
