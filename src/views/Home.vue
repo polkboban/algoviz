@@ -30,7 +30,7 @@ const navigateToAlgorithm = (id: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 dark:from-slate-900 dark:to-indigo-950 py-10 px-4 flex items-start pt-64 justify-center">
+  <div class="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 dark:from-slate-900 dark:to-indigo-950 py-10 px-4 flex items-start pt-48 justify-center">
     <div class="container mx-auto max-w-5xl">
       <h1 class="text-7xl font-bold text-center mb-4 text-slate-800 dark:text-white">
         Algorithm Visualizer
