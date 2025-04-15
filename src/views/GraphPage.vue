@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import GraphVisualizer from '../components/visualizers/GraphVisualizer.vue'
+import GraphAlgorithm from '../components/algorithms/GraphAlgorithm.vue'
 
 const algorithms = [
   { id: 'bfs', name: 'Breadth First Search' },
@@ -8,6 +9,11 @@ const algorithms = [
 ]
 
 const selectedAlgorithm = ref(algorithms[0].id)
+const currentStep = ref(0)
+
+const handleStepChange = (step: number) => {
+  currentStep.value = step
+}
 </script>
 
 <template>
@@ -29,7 +35,16 @@ const selectedAlgorithm = ref(algorithms[0].id)
         :algorithm="selectedAlgorithm"
         :speed="1"
         :isPlaying="false"
+        :currentStep="currentStep"
+        @stepChange="handleStepChange"
       />
+    </div>
+    <div class="algorithm-steps-container">
+      <GraphAlgorithm 
+        :algorithm="selectedAlgorithm" 
+        :currentStep="currentStep"
+        @stepChange="handleStepChange"
+        />
     </div>
   </div>
 </template>

@@ -5,6 +5,7 @@ const props = defineProps<{
   algorithm: string
   speed: number
   isPlaying: boolean
+  currentStep: number
 }>()
 
 const nodes = ref<{ id: number; x: number; y: number }[]>([])
@@ -44,16 +45,24 @@ const initializeGraph = () => {
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
+const emit = defineEmits(['stepChange'])
+
 const bfs = async () => {
   const queue = [0]
   visited.value = new Set()
+
+  emit('stepChange', 0)
+  await delay(1000 / props.speed)
   
   while (queue.length > 0 && isRunning.value) {
+    emit('stepChange', 1)
+    await delay(500 / props.speed)
+
     const node = queue.shift()!
     currentNode.value = node
-    visited.value.add(node)
     
-    await delay(1000 / props.speed)
+    emit('stepChange', 2)
+    await delay(500 / props.speed)
     
     const neighbors = edges.value
       .filter(edge => edge.from === node)
@@ -64,27 +73,43 @@ const bfs = async () => {
         queue.push(neighbor)
       }
     }
+    emit('stepChange', 3)
+    visited.value.add(node)
+    await delay(500 / props.speed)
   }
-  
+  emit('stepChange', 4)
   currentNode.value = null
 }
 
 const dfs = async (node = 0) => {
   if (!isRunning.value) return
   
-  visited.value.add(node)
+  if(node === 0) {
+    emit('stepChange', 0)
+    await delay(1000 / props.speed)
+  }
+  emit('stepChange', 1)
+
   currentNode.value = node
-  await delay(1000 / props.speed)
+  await delay(500 / props.speed)
   
+  emit('stepChange', 2)
   const neighbors = edges.value
     .filter(edge => edge.from === node)
     .map(edge => edge.to)
+  await delay(500 / props.speed)
   
+  emit('stepChange', 3)
+  visited.value.add(node)
+  await delay(500 / props.speed)
+
   for (const neighbor of neighbors) {
     if (!visited.value.has(neighbor)) {
       await dfs(neighbor)
     }
   }
+  emit('stepChange', 4)
+  await delay(500 / props.speed)
 }
 
 const startVisualization = async () => {
@@ -108,6 +133,7 @@ const stopVisualization = () => {
 
 const resetVisualization = () => {
   initializeGraph()
+  emit('stepChange', 0)
 }
 
 onMounted(() => {

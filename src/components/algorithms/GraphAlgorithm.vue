@@ -9,59 +9,58 @@ const props = defineProps<{
 
 defineEmits(['stepChange'])
 
-const fifoSteps = [
+const bfsSteps = [
   {
     title: '1. Initialize',
-    description: 'Set up empty memory frames and reference string'
+    description: 'Create a queue and mark start node as visited'
   },
   {
-    title: '2. Page Request',
-    description: 'Get the next page from reference string'
+    title: '2. Process Queue',
+    description: 'Remove first node from queue and explore it'
   },
   {
-    title: '3. Page Fault Check',
-    description: 'Check if requested page exists in memory frames'
+    title: '3. Explore Neighbors',
+    description: 'Add all unvisited neighbors to queue'
   },
   {
-    title: '4. FIFO Replacement',
-    description: 'If memory is full, remove the page that was loaded first (First-In-First-Out)'
+    title: '4. Mark Visited',
+    description: 'Mark current node as visited and record traversal'
   },
   {
-    title: '5. Update',
-    description: 'Add new page to memory and update page fault count'
+    title: '5. Repeat',
+    description: 'Continue until queue is empty'
   }
 ]
 
-const lruSteps = [
+const dfsSteps = [
   {
     title: '1. Initialize',
-    description: 'Set up empty memory frames and reference string'
+    description: 'Create a stack and mark start node as visited'
   },
   {
-    title: '2. Page Request',
-    description: 'Get the next page from reference string'
+    title: '2. Process Stack',
+    description: 'Remove top node from stack and explore it'
   },
   {
-    title: '3. Page Fault Check',
-    description: 'Check if requested page exists in memory frames'
+    title: '3. Explore Neighbors',
+    description: 'Add unvisited neighbors to stack'
   },
   {
-    title: '4. LRU Replacement',
-    description: 'If memory is full, remove the page that was least recently used'
+    title: '4. Mark Visited',
+    description: 'Mark current node as visited and record traversal'
   },
   {
-    title: '5. Update',
-    description: 'Add new page to memory and update access timestamps'
+    title: '5. Backtrack',
+    description: 'Return to previous node if no unvisited neighbors'
   }
 ]
 
 const algorithmSteps = computed(() => {
-  return props.algorithm === 'fifo' ? fifoSteps : lruSteps
+  return props.algorithm === 'bfs' ? bfsSteps : dfsSteps
 })
 </script>
 
 <template>
-  
   <div class="mt-8 bg-white dark:bg-slate-800 rounded-lg shadow-md p-6">
     <h3 class="text-2xl font-bold mb-4 text-slate-800 dark:text-white">
       {{ algorithm.toUpperCase() }} Algorithm Steps
@@ -86,9 +85,3 @@ const algorithmSteps = computed(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.algorithm-steps {
-  transition: all 0.3s ease-in-out;
-}
-</style>
