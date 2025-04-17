@@ -17,7 +17,7 @@ const handleStepChange = (step: number) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 dark:from-slate-900 dark:to-indigo-950 py-12 px-4">
+  <div class="min-h-screen bg-gradient-to-br from-slate-100 to-gray-300 dark:from-slate-900 dark:to-indigo-950 py-12 px-4 flex flex-col items-center justify-start space-y-10">
     <h1 class="page-title">Graph Algorithms</h1>
     <div class="algorithm-selector">
       <button
