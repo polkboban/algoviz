@@ -143,7 +143,7 @@ const algorithmSteps = computed(() => {
 <template>
   <div class="mt-4 bg-white dark:bg-slate-800 rounded-lg shadow-md p-6">
     <h3 class="text-2xl font-bold mb-4 text-slate-800 dark:text-white">
-      {{ algorithm.toLocaleUpperCase() }} Sort Steps
+      {{ props.algorithm.split('-')[0].charAt(0).toUpperCase() + props.algorithm.split('-')[0].slice(1) }} Sort Steps
     </h3>
     <div class="space-y-4">
       <div
