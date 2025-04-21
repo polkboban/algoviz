@@ -5,16 +5,18 @@ const props = defineProps<{
   algorithm: string
   speed: number
   isPlaying: boolean
+  currentStep: number
 }>()
+
+const emit = defineEmits(['stepChange'])
 
 const array = ref<number[]>([])
 const currentStep = ref(0)
-const steps = ref<any[]>([])
+const steps = ref<{ array: number[]; comparing: number[]; sorted: boolean[] }[]>([])
 const isRunning = ref(false)
 const arraySize = ref(20)
 const maxHeight = 80
 
-// Computed property to safely get current step
 const currentStepData = computed(() => steps.value[currentStep.value] || { comparing: [], sorted: [] })
 
 const generateArray = () => {
@@ -28,13 +30,16 @@ const generateArray = () => {
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
-const bubbleSort = async () => {
-  const arr = [...array.value]
-  const n = arr.length
+const bubbleSort = async (): Promise<void> => {
+  const arr: number[] = [...array.value]
+  const n: number = arr.length
   steps.value = []
+  
+  emit('stepChange', 0) 
   
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {
+      emit('stepChange', 1) 
       steps.value.push({
         array: [...arr],
         comparing: [j, j + 1],
@@ -49,14 +54,10 @@ const bubbleSort = async () => {
           sorted: Array.from({ length: n }, (_, idx) => idx >= n - i)
         })
       }
+      emit('stepChange', 3) 
     }
+    emit('stepChange', 4) 
   }
-  
-  steps.value.push({
-    array: arr,
-    comparing: [],
-    sorted: Array.from({ length: n }, () => true)
-  })
 }
 
 const insertionSort = async () => {
@@ -64,7 +65,10 @@ const insertionSort = async () => {
   const n = arr.length
   steps.value = []
 
+  emit('stepChange', 0) // Initialize
+  
   for (let i = 1; i < n; i++) {
+    emit('stepChange', 1) // Store Key
     let key = arr[i]
     let j = i - 1
     
@@ -75,6 +79,7 @@ const insertionSort = async () => {
     })
     
     while (j >= 0 && arr[j] > key) {
+      emit('stepChange', 2) // Compare Previous
       arr[j + 1] = arr[j]
       steps.value.push({
         array: [...arr],
@@ -84,19 +89,15 @@ const insertionSort = async () => {
       j--
     }
     
+    emit('stepChange', 3) // Shift Elements
     arr[j + 1] = key
+    emit('stepChange', 4) // Insert Key
     steps.value.push({
       array: [...arr],
       comparing: [j + 1],
       sorted: Array.from({ length: n }, (_, idx) => idx <= i)
     })
   }
-  
-  steps.value.push({
-    array: arr,
-    comparing: [],
-    sorted: Array.from({ length: n }, () => true)
-  })
 }
 
 const merge = (arr: number[], l: number, m: number, r: number) => {

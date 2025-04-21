@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import SortingVisualizer from '../components/visualizers/SortingVisualizer.vue'
+import SortingAlgorithm from '../components/algorithms/SortingAlgorithm.vue'
 
 const algorithms = [
   { id: 'bubble-sort', name: 'Bubble Sort' },
@@ -10,6 +11,11 @@ const algorithms = [
 ]
 
 const selectedAlgorithm = ref(algorithms[0].id)
+const currentStep = ref(0)
+
+const handleStepChange = (step: number) => {
+  currentStep.value = step
+}
 </script>
 
 <template>
@@ -31,6 +37,15 @@ const selectedAlgorithm = ref(algorithms[0].id)
         :algorithm="selectedAlgorithm"
         :speed="1"
         :isPlaying="false"
+        :currentStep="currentStep"
+        @stepChange="handleStepChange"
+      />
+    </div>
+    <div class="algorithm-steps-container">
+      <SortingAlgorithm 
+        :currentStep="currentStep"
+        :algorithm="selectedAlgorithm"
+        @stepChange="handleStepChange"
       />
     </div>
   </div>

@@ -26,7 +26,6 @@ const initializeGraph = () => {
     { id: 6, x: 700, y: 350 },
     { id: 7, x: 200, y: 500 },
     { id: 8, x: 400, y: 500 },
-    //{ id: 9, x: 600, y: 500 }
   ]
   
   edges.value = [
@@ -35,8 +34,6 @@ const initializeGraph = () => {
     { from: 2, to: 5 }, { from: 2, to: 6 },
     { from: 3, to: 7 }, { from: 4, to: 7 },
     { from: 4, to: 8 }, { from: 5, to: 8 },
-    //{ from: 5, to: 9 }, { from: 6, to: 9 },
-    //{ from: 7, to: 8 }, { from: 8, to: 9 }
   ]
   
   visited.value = new Set()
