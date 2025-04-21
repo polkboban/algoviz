@@ -141,9 +141,9 @@ const algorithmSteps = computed(() => {
 </script>
 
 <template>
-  <div class="mt-8 bg-white dark:bg-slate-800 rounded-lg shadow-md p-6">
+  <div class="mt-4 bg-white dark:bg-slate-800 rounded-lg shadow-md p-6">
     <h3 class="text-2xl font-bold mb-4 text-slate-800 dark:text-white">
-      {{ algorithm.toUpperCase() }} Sort Steps
+      {{ algorithm.toLocaleUpperCase() }} Sort Steps
     </h3>
     <div class="space-y-4">
       <div
