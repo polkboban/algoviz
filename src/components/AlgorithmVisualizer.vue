@@ -10,6 +10,7 @@ defineProps<{
 
 const speed = ref(1)
 const isPlaying = ref(false)
+const currentStep = ref(0)
 
 const togglePlay = () => {
   isPlaying.value = !isPlaying.value
@@ -17,7 +18,6 @@ const togglePlay = () => {
 
 const reset = () => {
   isPlaying.value = false
-  // Reset visualization state
 }
 </script>
 
@@ -37,7 +37,6 @@ const reset = () => {
         class="w-32"
       />
     </div>
-
     <component
       :is="algorithm.includes('sort') ? SortingVisualizer : 
            algorithm.includes('lru') ? PageReplacementVisualizer : 
@@ -45,6 +44,9 @@ const reset = () => {
       :algorithm="algorithm"
       :speed="speed"
       :isPlaying="isPlaying"
+      :currentStep="currentStep"
+      @stepChange="(step) => currentStep = step"
+    />
     />
   </div>
 </template>
