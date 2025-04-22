@@ -54,29 +54,6 @@ const insertionSortSteps = [
   }
 ]
 
-const quickSortSteps = [
-  {
-    title: '1. Choose Pivot',
-    description: 'Select a pivot element from the array'
-  },
-  {
-    title: '2. Partition',
-    description: 'Move smaller elements before pivot and larger after'
-  },
-  {
-    title: '3. Swap Elements',
-    description: 'Swap elements to place them in correct position'
-  },
-  {
-    title: '4. Place Pivot',
-    description: 'Place pivot in its final sorted position'
-  },
-  {
-    title: '5. Recurse',
-    description: 'Recursively sort sub-arrays before and after pivot'
-  }
-]
-
 const mergeSortSteps = [
   {
     title: '1. Divide',
